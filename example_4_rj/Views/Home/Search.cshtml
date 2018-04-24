@@ -1,0 +1,30 @@
+﻿@model example_4_rj.Models.SearchContainerModel
+
+@{
+    ViewBag.Title = "Results";
+}
+
+<h2>Results</h2>
+<button id="obut">show obits</button>
+<button id="nbut">show naturals</button>
+<button id="cbut">show census</button>
+@Html.Partial("Partials/Obit", Model.obit)
+@Html.Partial("Partials/Naturals", Model.nattyice)
+@Html.Partial("Partials/Census", Model.census)
+<script>
+    $('#nbut').on('click', function () {
+        $('#nat').show();
+        $('#obit').hide();
+        $('#census').hide();
+    });
+    $('#cbut').on('click', function () {
+        $('#census').show();
+        $('#obit').hide();
+        $('#nat').hide();
+    });
+    $('#obut').on('click', function () {
+        $('#obit').show();
+        $('#nat').hide();
+        $('#census').hide();
+    });
+</script>
